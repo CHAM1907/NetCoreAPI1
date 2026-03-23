@@ -1,0 +1,29 @@
+@model BaiThucHanhSo3.Models.Student
+
+<h2 class="mb-4">Sửa sinh viên</h2>
+
+<div class="card p-4 shadow-sm">
+    <form method="post">
+
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div class="mb-3">
+            <label class="form-label">Mã sinh viên</label>
+            <input name="StudentCode" value="@Model.StudentCode" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Họ tên</label>
+            <input name="FullName" value="@Model.FullName" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-warning">
+            Cập nhật
+        </button>
+
+        <a href="/Student/Index" class="btn btn-secondary">
+            Quay lại
+        </a>
+
+    </form>
+</div>

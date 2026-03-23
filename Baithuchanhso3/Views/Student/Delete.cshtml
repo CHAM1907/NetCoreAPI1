@@ -1,0 +1,19 @@
+@model BaiThucHanhSo3.Models.Student
+
+<h2 class="mb-4 text-danger">Xoá sinh viên</h2>
+
+<div class="alert alert-danger">
+    Bạn có chắc muốn xoá <strong>@Model.FullName</strong> không?
+</div>
+
+<form method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <button type="submit" class="btn btn-danger">
+        Xoá
+    </button>
+
+    <a href="/Student/Index" class="btn btn-secondary">
+        Huỷ
+    </a>
+</form>

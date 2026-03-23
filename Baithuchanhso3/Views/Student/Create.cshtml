@@ -1,0 +1,28 @@
+@model BaiThucHanhSo3.Models.Student
+
+<h2 class="mb-4">Thêm sinh viên</h2>
+
+<div class="card p-4 shadow-sm">
+    <form method="post">
+
+        <div class="mb-3">
+            <label asp-for="StudentCode" class="form-label"></label>
+            <input asp-for="StudentCode" class="form-control" />
+            <span asp-validation-for="StudentCode" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label"></label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <a href="/Student/Index" class="btn btn-secondary">Quay lại</a>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
