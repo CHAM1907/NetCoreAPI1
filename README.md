@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Bài Thực Hành Số 3 - ASP.NET MVC
 
 ## 1. Cấu trúc thư mục
@@ -18,6 +19,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 =======
+=======
+>>>>>>> 705fc38a3c5b76f9b9abbc01a644f35ba6932e55
 Cấu trúc thư mục dự án ASP.NET Core MVC
 1. Tổng quan
 
@@ -481,4 +484,7 @@ datetime
 guid
 
 min, max, length
+<<<<<<< HEAD
 >>>>>>> 705fc38 (Create README.md)
+=======
+>>>>>>> 705fc38a3c5b76f9b9abbc01a644f35ba6932e55
