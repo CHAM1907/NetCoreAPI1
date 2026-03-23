@@ -1,0 +1,11 @@
+<h2>Nhập họ tên</h2>
+
+<form method="post">
+    <input type="text" name="fullName" />
+    <button type="submit">Gửi</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}

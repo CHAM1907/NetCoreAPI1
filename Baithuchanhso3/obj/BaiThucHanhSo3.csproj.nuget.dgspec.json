@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\Baithuchanhso3\\BaiThucHanhSo3.csproj": {}
+    "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\baithuchanhso3\\BaiThucHanhSo3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\Baithuchanhso3\\BaiThucHanhSo3.csproj": {
+    "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\baithuchanhso3\\BaiThucHanhSo3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\Baithuchanhso3\\BaiThucHanhSo3.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\baithuchanhso3\\BaiThucHanhSo3.csproj",
         "projectName": "BaiThucHanhSo3",
-        "projectPath": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\Baithuchanhso3\\BaiThucHanhSo3.csproj",
+        "projectPath": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\baithuchanhso3\\BaiThucHanhSo3.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\Baithuchanhso3\\obj\\",
+        "outputPath": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\baithuchanhso3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config"
