@@ -27,33 +27,29 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
 
-                        <!-- Home -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
+                            <a class="nav-link text-dark"
                                asp-controller="Home" asp-action="Index">
                                 Home
                             </a>
                         </li>
 
-                        <!-- Privacy -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark @(ViewContext.RouteData.Values["action"]?.ToString() == "Privacy" ? "active" : "")"
+                            <a class="nav-link text-dark"
                                asp-controller="Home" asp-action="Privacy">
                                 Privacy
                             </a>
                         </li>
 
-                        <!-- Student List -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark @(ViewContext.RouteData.Values["controller"]?.ToString() == "Student" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"
+                            <a class="nav-link text-dark"
                                asp-controller="Student" asp-action="Index">
                                 Danh sách SV
                             </a>
                         </li>
 
-                        <!-- Create Student -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark @(ViewContext.RouteData.Values["action"]?.ToString() == "Create" ? "active" : "")"
+                            <a class="nav-link text-dark"
                                asp-controller="Student" asp-action="Create">
                                 Thêm sinh viên
                             </a>
@@ -79,9 +75,35 @@
         </div>
     </footer>
 
+    <!-- ✅ TOAST -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <div id="liveToast" class="toast align-items-center text-bg-success border-0">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        @TempData["Success"]
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                            data-bs-dismiss="toast"></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- ✅ SCRIPT SHOW TOAST -->
+    <script>
+        var toastEl = document.getElementById('liveToast');
+        if (toastEl) {
+            var toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+        }
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

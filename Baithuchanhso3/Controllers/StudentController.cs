@@ -39,6 +39,8 @@ namespace BaiThucHanhSo3.Controllers
 
             _context.Students.Add(student);
             _context.SaveChanges();
+               // 👉 THÊM DÒNG NÀY
+    TempData["Success"] = "Thêm sinh viên thành công!";
 
             return RedirectToAction("Index");
         }
@@ -68,6 +70,7 @@ namespace BaiThucHanhSo3.Controllers
 
             _context.Students.Update(student);
             _context.SaveChanges();
+    TempData["Success"] = "Cập nhật thông tin sinh viên thành công!";
 
             return RedirectToAction("Index");
         }
@@ -99,6 +102,8 @@ namespace BaiThucHanhSo3.Controllers
 
             _context.Students.Remove(student);
             _context.SaveChanges();
+    TempData["Success"] = "Xóa thông tin sinh viên thành công!";
+
 
             return RedirectToAction("Index");
         }
