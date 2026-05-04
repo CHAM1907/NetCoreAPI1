@@ -1,41 +1,51 @@
 @model BaiThucHanhSo3.Models.Student
 
-<h2 class="mb-4">Sửa sinh viên</h2>
+<h2 class="mb-4">Chỉnh sửa thông tin sinh viên</h2>
 
-<div class="card p-4 shadow-sm">
-    <form method="post">
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
 
-        <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="mb-3">
+                <label asp-for="StudentCode" class="form-label"></label>
+                <input asp-for="StudentCode" class="form-control" />
+                <span asp-validation-for="StudentCode" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label">Mã sinh viên</label>
-            <input name="StudentCode" value="@Model.StudentCode" class="form-control" />
-        </div>
+            <div class="mb-3">
+                <label asp-for="FullName" class="form-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label">Họ tên</label>
-            <input name="FullName" value="@Model.FullName" class="form-control" />
-        </div>
+            <div class="mb-3">
+                <label asp-for="Age" class="form-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
 
-        <!-- THÊM TUỔI -->
-        <div class="mb-3">
-            <label class="form-label">Tuổi</label>
-            <input name="Age" value="@Model.Age" class="form-control" type="number" />
-        </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
 
-        <!-- THÊM EMAIL -->
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input name="Email" value="@Model.Email" class="form-control" type="email" />
-        </div>
+            <div class="mb-3">
+                <label asp-for="FacultyId" class="form-label"></label>
+                <select asp-for="FacultyId" asp-items="ViewBag.FacultyId" class="form-select">
+                    <option value="">-- Chọn khoa --</option>
+                </select>
+                <span asp-validation-for="FacultyId" class="text-danger"></span>
+            </div>
 
-        <button type="submit" class="btn btn-warning">
-            Cập nhật
-        </button>
-
-        <a href="/Student/Index" class="btn btn-secondary">
-            Quay lại
-        </a>
-
-    </form>
+            <button type="submit" class="btn btn-warning">Cập nhật</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Quay lại</a>
+        </form>
+    </div>
 </div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

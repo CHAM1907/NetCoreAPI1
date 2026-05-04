@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; 
 
 namespace BaiThucHanhSo3.Models
 {
@@ -19,5 +20,15 @@ namespace BaiThucHanhSo3.Models
 
         [EmailAddress(ErrorMessage = "Email không hợp lệ")]
         public string? Email { get; set; }
+
+         // Khóa ngoại liên kết đến Faculty
+        [Required(ErrorMessage = "Vui lòng chọn khoa")]
+        [Display(Name = "Khoa")]
+        public int FacultyId { get; set; }
+ 
+        // Navigation property
+        [ForeignKey("FacultyId")]
+        public Faculty? Faculty { get; set; }
+        
     }
 }

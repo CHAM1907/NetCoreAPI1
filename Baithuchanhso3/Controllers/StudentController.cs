@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using BaiThucHanhSo3.Data;
 using BaiThucHanhSo3.Models;
-using System.Linq;
+using BaiThucHanhSo3.ViewModels;
 
 namespace BaiThucHanhSo3.Controllers
 {
@@ -14,17 +16,31 @@ namespace BaiThucHanhSo3.Controllers
             _context = context;
         }
 
-        // ================== INDEX ==================
+        // ================== INDEX — dùng ViewModel ==================
         public IActionResult Index()
         {
-            var list = _context.Students.ToList();
+            // Include Faculty để lấy tên khoa, chiếu sang ViewModel
+            var list = _context.Students
+                .Include(s => s.Faculty)
+                .Select(s => new StudentFacultyVM
+                {
+                    Id          = s.Id,
+                    StudentCode = s.StudentCode,
+                    FullName    = s.FullName,
+                    Age         = s.Age,
+                    Email       = s.Email,
+                    FacultyName = s.Faculty != null ? s.Faculty.FacultyName : "Chưa phân khoa"
+                })
+                .ToList();
+
             return View(list);
         }
 
         // ================== CREATE (GET) ==================
         public IActionResult Create()
         {
-            return View();
+            LoadFacultyDropdown();
+            return View(new Student());
         }
 
         // ================== CREATE (POST) ==================
@@ -34,13 +50,13 @@ namespace BaiThucHanhSo3.Controllers
         {
             if (!ModelState.IsValid)
             {
+                LoadFacultyDropdown(student.FacultyId);
                 return View(student);
             }
 
             _context.Students.Add(student);
             _context.SaveChanges();
-               // 👉 THÊM DÒNG NÀY
-    TempData["Success"] = "Thêm sinh viên thành công!";
+            TempData["Success"] = "Thêm sinh viên thành công!";
 
             return RedirectToAction("Index");
         }
@@ -51,10 +67,9 @@ namespace BaiThucHanhSo3.Controllers
             var student = _context.Students.Find(id);
 
             if (student == null)
-            {
                 return RedirectToAction("NotFoundPage", "Home");
-            }
 
+            LoadFacultyDropdown(student.FacultyId);
             return View(student);
         }
 
@@ -65,12 +80,13 @@ namespace BaiThucHanhSo3.Controllers
         {
             if (!ModelState.IsValid)
             {
+                LoadFacultyDropdown(student.FacultyId);
                 return View(student);
             }
 
             _context.Students.Update(student);
             _context.SaveChanges();
-    TempData["Success"] = "Cập nhật thông tin sinh viên thành công!";
+            TempData["Success"] = "Cập nhật thông tin sinh viên thành công!";
 
             return RedirectToAction("Index");
         }
@@ -78,12 +94,12 @@ namespace BaiThucHanhSo3.Controllers
         // ================== DELETE (GET) ==================
         public IActionResult Delete(int id)
         {
-            var student = _context.Students.Find(id);
+            var student = _context.Students
+                .Include(s => s.Faculty)
+                .FirstOrDefault(s => s.Id == id);
 
             if (student == null)
-            {
                 return RedirectToAction("NotFoundPage", "Home");
-            }
 
             return View(student);
         }
@@ -96,16 +112,24 @@ namespace BaiThucHanhSo3.Controllers
             var student = _context.Students.Find(id);
 
             if (student == null)
-            {
                 return RedirectToAction("NotFoundPage", "Home");
-            }
 
             _context.Students.Remove(student);
             _context.SaveChanges();
-    TempData["Success"] = "Xóa thông tin sinh viên thành công!";
-
+            TempData["Success"] = "Xóa thông tin sinh viên thành công!";
 
             return RedirectToAction("Index");
+        }
+
+        // ================== Helper: nạp danh sách khoa cho dropdown ==================
+        private void LoadFacultyDropdown(int? selectedId = null)
+        {
+            ViewBag.FacultyId = new SelectList(
+                _context.Faculties.OrderBy(f => f.FacultyName),
+                "Id",
+                "FacultyName",
+                selectedId
+            );
         }
     }
 }

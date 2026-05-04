@@ -3081,19 +3081,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "/Users/embeiu/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\baithuchanhso3\\BaiThucHanhSo3.csproj",
+      "projectUniqueName": "/Users/embeiu/Documents/htqt/NetCoreAPI1/Baithuchanhso3/BaiThucHanhSo3.csproj",
       "projectName": "BaiThucHanhSo3",
-      "projectPath": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\baithuchanhso3\\BaiThucHanhSo3.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\Documents\\BTVN\\BaiThucHanhSo3\\baithuchanhso3\\obj\\",
+      "projectPath": "/Users/embeiu/Documents/htqt/NetCoreAPI1/Baithuchanhso3/BaiThucHanhSo3.csproj",
+      "packagesPath": "/Users/embeiu/.nuget/packages/",
+      "outputPath": "/Users/embeiu/Documents/htqt/NetCoreAPI1/Baithuchanhso3/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/embeiu/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -3117,7 +3117,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
@@ -3157,7 +3157,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.203/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

@@ -1,19 +1,19 @@
 @model BaiThucHanhSo3.Models.Student
 
-<h2 class="mb-4 text-danger">Xoá sinh viên</h2>
+<h2 class="mb-4 text-danger">Xác nhận xóa sinh viên</h2>
 
-<div class="alert alert-danger">
-    Bạn có chắc muốn xoá <strong>@Model.FullName</strong> không?
+<div class="card col-md-5">
+    <div class="card-body">
+        <p><strong>Mã SV:</strong> @Model.StudentCode</p>
+        <p><strong>Họ tên:</strong> @Model.FullName</p>
+        <p><strong>Khoa:</strong> @(Model.Faculty?.FacultyName ?? "Chưa phân khoa")</p>
+        <p class="text-danger">Bạn có chắc chắn muốn xóa sinh viên này không?</p>
+
+        <form asp-action="Delete" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Hủy</a>
+        </form>
+    </div>
 </div>
-
-<form method="post">
-    <input type="hidden" name="id" value="@Model.Id" />
-
-    <button type="submit" class="btn btn-danger">
-        Xoá
-    </button>
-
-    <a href="/Student/Index" class="btn btn-secondary">
-        Huỷ
-    </a>
-</form>
